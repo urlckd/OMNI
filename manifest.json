@@ -20,7 +20,8 @@
     },
     "permissions": [
       "declarativeNetRequest",
-      "declarativeNetRequestFeedback"
+      "declarativeNetRequestFeedback",
+      "tabs"
     ],
     "host_permissions": [
       "*://*.throne.com/*",
@@ -44,6 +45,12 @@
             "*://*.pornhub.com/*"
         ],
          "js": ["content-script.js"],
+         "run_at": "document_idle"
+       },
+       {
+         "matches": ["<all_urls>"],
+         "js": ["content.js"],
+         "css": ["style.css"],
          "run_at": "document_idle"
        }
     ]
