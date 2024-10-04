@@ -47,7 +47,8 @@ Not yet, currently! But it will definitely be available sometime soon!
 
 Step One:
 ```
-Download the ZIP file that is located via (<> code button, which should be green), and then drag the file to your desktop.
+Download the ZIP file that is located via (<> code button, which should be green), and then drag
+the file to your desktop.
 ```
 Step Two:
 ```
@@ -55,7 +56,9 @@ Right click the file, and click extract all.
 ```
 Step Three:
 ```
-Click on the puzzle piece located in the top right of your browser, and then proceed to click "manage extensions." This should open a new tab for all of the current extensions you have installed. 
+Click on the puzzle piece located in the top right of your browser, and then proceed to click
+"manage extensions."This should open a new tab for all of the current extensions you have
+installed. 
 ```
 ![Screenshot](https://i.imgur.com/Odqok73.png)
 
@@ -73,7 +76,8 @@ Click on "Load Unpacked," and then proceed to locate the "OMNI" file that is cur
 
 Step One:
 ```
-Download the ZIP file that is located via (<> code button, which should be green), and then drag the file to your desktop.
+Download the ZIP file that is located via (<> code button, which should be green),
+and then drag the file to your desktop.
 ```
 Step Two:
 ```
@@ -81,7 +85,9 @@ Right click the file, and click extract all.
 ```
 Step Three:
 ```
-Click on the cube located in the top right of your browser, and then proceed to click "manage extensions." This should open a new tab for all of the current extensions you have installed. 
+Click on the cube located in the top right of your browser, and then proceed to click
+"manage extensions."This should open a new tab for all of the current extensions you have
+installed. 
 ```
 ![Screenshot](https://i.imgur.com/q13LYd1.png)
 Step Four:
