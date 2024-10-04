@@ -16,16 +16,15 @@ Keep in mind: the following browser extension is intended for ages 18 years or o
 
 - Replaces all SFW & NSFW pictures with various sorts of pornographic images. 
 - Redirects all pornographic video sites to beta safe censored sites.
-- Custom Twitter & Browser theme.
-- Better Ads (Pornographic).
-- Rewards User for Retweeting & Liking.
 - Surprise Links (Haha).
 
 
 ## Roadmap
 
-- Content Packs
-
+- Content Packs.
+- Better Ads (Pornographic).
+- Custom Twitter & Browser theme.
+- Rewards User for Retweeting & Liking.
 - Integrated Options to upload your own packs.
 
 
