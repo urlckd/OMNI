@@ -11,3 +11,7 @@ const send = (s) => {
   document.getElementById("off").onclick = () => {
     send("off");
   }
+
+  chrome.storage.sync.get(['spam'], function(items) {
+    document.getElementById('status').textContent=items["spam"];
+  });
