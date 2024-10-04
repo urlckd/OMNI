@@ -39,9 +39,9 @@ chrome.runtime.onMessage.addListener((message) => {
 	switch (message) {
 	  case "on":
 		isEnabled = true;
-        chrome.storage.local.set({ "spam": true }).then(() => {
-            console.log("Value is set");
-          });
+        chrome.storage.sync.set({'spam': true}, function() {
+          console.log('Settings saved');
+        });
 		console.log("on");
 		break;
       case "clear":
@@ -54,19 +54,19 @@ chrome.runtime.onMessage.addListener((message) => {
         break;
 	  default:
         isEnabled = false;
-		chrome.storage.local.set({ "spam": false }).then(() => {
-            console.log("Value is set");
-          });
+        chrome.storage.sync.set({'spam': false}, function() {
+          console.log('Settings saved');
+        });
 		console.log("off");
 		break;
 	}
 	console.log(isEnabled);
   });
 
-isEnabled = false;/*
-chrome.storage.local.get(["spam"]).then((result) => {
-    console.log("Value is " + result.value);
-    isEnabled = result.value;
-});*/
+isEnabled = false;
+// Read it using the storage API
+chrome.storage.sync.get(['spam'], function(items) {
+  isEnabled = items["spam"];
+});
 console.log("create div");
 setInterval(createOverlay, 1000);
