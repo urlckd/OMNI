@@ -30,6 +30,10 @@ Keep in mind: the following browser extension is intended for ages 18 years or o
 
 ## FAQ
 
+#### How do I activate "View Distraction?" 
+
+Click on the extension icon in the top right (if you have it pinned there), and click "on" to enable and click "off" to disable it.
+
 #### Does it work for phones? Like android devices?
 
 Unfortunately not at this moment. In the future, we do plan on making it available for mobile use.
