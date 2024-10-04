@@ -16,20 +16,23 @@ Keep in mind: the following browser extension is intended for ages 18 years or o
 
 - Replaces all SFW & NSFW pictures with various sorts of pornographic images. 
 - Redirects all pornographic video sites to beta safe censored sites.
-- Custom Twitter & Browser theme.
-- Better Ads (Pornographic).
-- Rewards User for Retweeting & Liking.
 - Surprise Links (Haha).
 
 
 ## Roadmap
 
-- Content Packs
-
+- Content Packs.
+- Better Ads (Pornographic).
+- Custom Twitter & Browser theme.
+- Rewards User for Retweeting & Liking.
 - Integrated Options to upload your own packs.
 
 
 ## FAQ
+
+#### How do I activate "View Distraction?" 
+
+Click on the extension icon in the top right (if you have it pinned there), and click "on" to enable and click "off" to disable it.
 
 #### Does it work for phones? Like android devices?
 
@@ -48,50 +51,58 @@ Not yet, currently! But it will definitely be available sometime soon!
 
 Step One:
 ```
-Download the ZIP file that is located via (<> code button, which should be green), and then drag the file to your desktop.
+Download the ZIP file that is located via (<> code button, which should be green), and then drag
+the file to your desktop.
 ```
+![Screenshot](https://i.imgur.com/qkzJlqW.png)
 Step Two:
 ```
 Right click the file, and click extract all. 
 ```
 Step Three:
 ```
-Click on the puzzle piece located in the top right of your browser, and then proceed to click "manage extensions." This should open a new tab for all of the current extensions you have installed. 
+Click on the puzzle piece located in the top right of your browser, and then proceed to click
+"manage extensions."This should open a new tab for all of the current extensions you have
+installed. 
 ```
-![Screenshot](https://i.imgur.com/Odqok73.png)
+![Screenshot](https://i.imgur.com/LXDa3Gc.png)
 
 Step Four:
 ```
 Turn on "developer mode," which should be located at the top right of the extensions manager.
 ```
-![Screenshot](https://i.imgur.com/jeBSrhl.png)
+![Screenshot](https://i.imgur.com/oe85sQ9.png)
 Step Five:
 ```
-Click on "Load Unpacked," and then proceed to locate the "OMNI" file that is currently on your desktop. 
+Click on "Load Unpacked," and then proceed to locate the "OMNI" folder that is currently on your desktop. 
 ```
-![Screenshot](https://i.imgur.com/Obh17Ea.png)
+![Screenshot](https://i.imgur.com/7o5NoQ7.png)
 ## Installation (Opera GX)
 
 Step One:
 ```
-Download the ZIP file that is located via (<> code button, which should be green), and then drag the file to your desktop.
+Download the ZIP file that is located via (<> code button, which should be green),
+and then drag the file to your desktop.
 ```
+![Screenshot](https://i.imgur.com/qkzJlqW.png)
 Step Two:
 ```
 Right click the file, and click extract all. 
 ```
 Step Three:
 ```
-Click on the cube located in the top right of your browser, and then proceed to click "manage extensions." This should open a new tab for all of the current extensions you have installed. 
+Click on the cube located in the top right of your browser, and then proceed to click
+"manage extensions."This should open a new tab for all of the current extensions you have
+installed. 
 ```
-![Screenshot](https://i.imgur.com/q13LYd1.png)
+![Screenshot](https://i.imgur.com/UmTXtKk.png)
 Step Four:
 ```
 Turn on "developer mode," which should be located at the top right of the extensions manager.
 ```
-![Screenshot](https://i.imgur.com/VJW3FLd.png)
+![Screenshot](https://i.imgur.com/Ndvw418.png)
 Step Five:
 ```
 Click on "Load Unpacked," and then proceed to locate the "OMNI" file that is currently on your desktop. 
 ```
-![Screenshot](https://i.imgur.com/JvaTFzX.png)
+![Screenshot](https://i.imgur.com/3JWDGSw.png)
