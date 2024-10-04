@@ -8,7 +8,7 @@
       "128": "images/icon-48.png"
     },
     "web_accessible_resources": [{ 
-      "resources": ["/images/*.jpg", "/imagesFeet/*.jpg"],
+      "resources": ["/images/*.jpg"],
       "matches": ["<all_urls>"]
     }],
     "declarative_net_request" : {
@@ -21,7 +21,8 @@
     "permissions": [
       "declarativeNetRequest",
       "declarativeNetRequestFeedback",
-      "tabs"
+      "tabs",
+      "storage"
     ],
     "action": {
       "default_popup": "popup.html"
