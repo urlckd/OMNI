@@ -3,7 +3,8 @@ async function replace() {
 	var images = document.querySelectorAll("img");
 	for (var i = 0; i < images.length; i++) {
 			if (images[i].id != 'overlay'){
-				images[i].src = chrome.runtime.getURL("images/" +  Math.floor(Math.random() * 74) + ".jpg");
+				var number = Math.floor(Math.random() * 74);
+				images[i].src = await chrome.runtime.getURL("images/" +  number + ".jpg");
 			}
 	}
 }

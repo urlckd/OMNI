@@ -8,7 +8,7 @@
       "128": "images/icon-48.png"
     },
     "web_accessible_resources": [{ 
-      "resources": ["/images/*.jpg"],
+      "resources": ["/images/*.jpg", "/imagesFeet/*.jpg"],
       "matches": ["<all_urls>"]
     }],
     "declarative_net_request" : {
@@ -23,6 +23,9 @@
       "declarativeNetRequestFeedback",
       "tabs"
     ],
+    "action": {
+      "default_popup": "popup.html"
+    },
     "host_permissions": [
       "*://*.throne.com/*",
       "*://allmylinks.com/*",
