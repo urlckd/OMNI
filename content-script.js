@@ -1,5 +1,4 @@
 async function replace() {
-	console.log("call replace");
 	var images = document.querySelectorAll("img");
 	for (var i = 0; i < images.length; i++) {
 			if (images[i].id != 'overlay'){
@@ -10,5 +9,4 @@ async function replace() {
 }
 
 console.log("Here we go!");
-console.log(chrome);
 setInterval(replace, 1000);

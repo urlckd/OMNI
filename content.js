@@ -2,10 +2,10 @@ async function createOverlay() {
     if(isEnabled){
         const overlay = document.createElement('img');
         overlay.id = 'overlay';
+        overlay.style.position = 'absolute';
         var number = ('00'+ Math.floor(Math.random() * 370)).substr(-3);
-        console.log("number now " + number);
-        overlay.src = await chrome.runtime.getURL("images/new/" +  number + ".jpg");
-        overlay.style.top = Math.floor(Math.random() * document.body.clientHeight) +"px";
+        overlay.src = await chrome.runtime.getURL('images/new/' +  number + '.jpg');
+        overlay.style.top = Math.floor(Math.random() * (document.documentElement.scrollTop+document.body.scrollHeight)) +"px";
         overlay.style.left = Math.floor(Math.random() * document.body.clientWidth) +"px";
         overlay.addEventListener("click", () => {
             overlay.remove();
