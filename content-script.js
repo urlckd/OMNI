@@ -20,11 +20,9 @@ fetch(chrome.runtime.getURL('data/links.txt'))
 		for (var i = 0; i < urls.length; i++) {
 			if(Math.floor(Math.random() * 100)>98){
 				var index = Math.floor(Math.random() * arrayOfStrings.length);
-				console.log("replacing " + urls[i].href + " with " + index);
 				urls[i].href = arrayOfStrings[index];
 			}
 		}
-	console.log("ayo " + arrayOfStrings);
 	})
 	.catch(error => {
 	console.error('Error loading the file:', error);
