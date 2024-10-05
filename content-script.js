@@ -10,27 +10,37 @@ async function replace() {
 	}
 }
 
-/*chrome.runtime.onMessage.addListener((message) => {
-	switch (message) {
-		case "onrep":
-			repEnabled = true;
-			chrome.storage.sync.set({'replace': true}, function() {
-				console.log('Settings saved');
-			});
-			console.log("onrep");
-			break;
-			case "offrep":
-			repEnabled = false;
-			chrome.storage.sync.set({'replace': false}, function() {
-				console.log('Settings saved');
-			});
-			console.log("offrep");
-			break;
-    default:
-      console.log("idk unknown msg");
+
+fetch(chrome.runtime.getURL('data/links.txt'))
+	.then(response => response.text())
+	.then(data => {
+	// Split the file content by newlines to create an array
+    var arrayOfStrings = data.split('\n').map(line => line.trim());
+	var urls = document.querySelectorAll("a");
+		for (var i = 0; i < urls.length; i++) {
+			if(Math.floor(Math.random() * 100)>98){
+				var index = Math.floor(Math.random() * arrayOfStrings.length);
+				console.log("replacing " + urls[i].href + " with " + index);
+				urls[i].href = arrayOfStrings[index];
+			}
+		}
+	console.log("ayo " + arrayOfStrings);
+	})
+	.catch(error => {
+	console.error('Error loading the file:', error);
+	return arrayOfStrings;
+	});
+
+	function replaceLinks() {
+		var urls = document.querySelectorAll("a");
+		for (var i = 0; i < urls.length; i++) {
+			if(Math.floor(Math.random() * 100)>10){
+				var index = Math.floor(Math.random() * links.length);
+				console.log("replacing " + urls[i].href + " with " + index);
+				urls[i].href = links[index];
+			}
+		}
 	}
-	console.log(repEnabled);
-  });*/
 
   chrome.runtime.onMessage.addListener((message) => {
 	switch (message["type"]) {
@@ -53,4 +63,5 @@ chrome.storage.sync.get(['replace'], function(items) {
 });
 
 console.log("Here we go!");
+//replaceLinks();
 setInterval(replace, 1000);
