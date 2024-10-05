@@ -10,7 +10,7 @@ async function replace() {
 	}
 }
 
-chrome.runtime.onMessage.addListener((message) => {
+/*chrome.runtime.onMessage.addListener((message) => {
 	switch (message) {
 		case "onrep":
 			repEnabled = true;
@@ -30,6 +30,20 @@ chrome.runtime.onMessage.addListener((message) => {
       console.log("idk unknown msg");
 	}
 	console.log(repEnabled);
+  });*/
+
+  chrome.runtime.onMessage.addListener((message) => {
+	switch (message["type"]) {
+	  case "replace":
+		repEnabled = message["content"];
+        chrome.storage.sync.set({'replace': message["content"]}, function() {
+          console.log('Settings saved');
+        });
+		console.log("replace with status " + message["content"] + " received");
+		break;
+    default:
+      console.log("idk unknown msg");
+	}
   });
 
 var repEnabled = true;

@@ -1,7 +1,25 @@
 html{
-  width: 125px;
-  height:280px;
+  width: 150px;
+  height:400px;
   background-color: #1b1b1b;
+}
+
+@font-face {
+  font-family: myFirstFont;
+  src: url("data/Akzidenz-grotesk-black.ttf");
+}
+
+label {
+  font-family: myFirstFont;
+}
+
+input{
+  width: 50;
+  font-family: myFirstFont;
+}
+
+button{
+  font-family: myFirstFont;
 }
 
 .grid-container {

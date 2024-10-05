@@ -1,16 +1,16 @@
-const send = (s) => {
+const send = (msgType, msgContent) => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      chrome.tabs.sendMessage(tabs[0].id, s);
+      chrome.tabs.sendMessage(tabs[0].id, {type: msgType, content: msgContent});
     });
   }
   
   document.getElementById("spam").onclick = () => {
     var button = document.getElementById('spam');
     if (button.textContent == "Active"){
-      send("offsp");
+      send("spam", false);
       button.textContent = 'Inactive';
     } else{
-      send("onsp");
+      send("spam", true);
       button.textContent = 'Active';
     }
   }
@@ -18,15 +18,19 @@ const send = (s) => {
   document.getElementById("replace").onclick = () => {
     var button = document.getElementById('replace');
     if (button.textContent == "Active"){
-      send("offrep");
+      send("replace", false);
       button.textContent = 'Inactive';
     } else{
-      send("onrep");
+      send("replace", true);
       button.textContent = 'Active';
     }
   }
 
-  chrome.storage.sync.get(['spam','replace'], function(items) {
+  document.getElementById("freqsave").onclick = () => {
+    send("frequency", document.getElementById('freq').value);
+  }
+
+  chrome.storage.sync.get(['spam','replace', 'freq'], function(items) {
     if (items["spam"]){
       document.getElementById('spam').textContent = 'Active';
     } else {
@@ -37,4 +41,5 @@ const send = (s) => {
     } else {
       document.getElementById('replace').textContent = 'Inactive';
     }
+    document.getElementById('freq').value = (items["freq"]/1000);
   });
