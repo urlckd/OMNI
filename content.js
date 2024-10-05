@@ -1,5 +1,5 @@
 async function createOverlay() {
-    if(isEnabled){
+    if(spEnabled){
         const overlay = document.createElement('img');
         overlay.id = 'overlay';
         overlay.style.position = 'absolute';
@@ -18,28 +18,30 @@ async function createOverlay() {
 
 chrome.runtime.onMessage.addListener((message) => {
 	switch (message) {
-	  case "on":
-		isEnabled = true;
+	  case "onsp":
+      spEnabled = true;
         chrome.storage.sync.set({'spam': true}, function() {
           console.log('Settings saved');
         });
-		console.log("on");
+		console.log("onsp");
 		break;
-	  default:
-        isEnabled = false;
+	  case "offsp":
+      spEnabled = false;
         chrome.storage.sync.set({'spam': false}, function() {
           console.log('Settings saved');
         });
-		console.log("off");
+		console.log("offsp");
 		break;
+    default:
+      console.log("idk unknown msg");
 	}
-	console.log(isEnabled);
+	console.log(spEnabled);
   });
 
-isEnabled = false;
+var spEnabled = false;
 // Read it using the storage API
 chrome.storage.sync.get(['spam'], function(items) {
-  isEnabled = items["spam"];
+  spEnabled = items["spam"];
 });
 console.log("create div");
 setInterval(createOverlay, 1000);

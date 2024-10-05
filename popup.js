@@ -4,14 +4,37 @@ const send = (s) => {
     });
   }
   
-  document.getElementById("on").onclick = () => {
-    send("on");
-  }
-  
-  document.getElementById("off").onclick = () => {
-    send("off");
+  document.getElementById("spam").onclick = () => {
+    var button = document.getElementById('spam');
+    if (button.textContent == "Active"){
+      send("offsp");
+      button.textContent = 'Inactive';
+    } else{
+      send("onsp");
+      button.textContent = 'Active';
+    }
   }
 
-  chrome.storage.sync.get(['spam'], function(items) {
-    document.getElementById('status').textContent=items["spam"];
+  document.getElementById("replace").onclick = () => {
+    var button = document.getElementById('replace');
+    if (button.textContent == "Active"){
+      send("offrep");
+      button.textContent = 'Inactive';
+    } else{
+      send("onrep");
+      button.textContent = 'Active';
+    }
+  }
+
+  chrome.storage.sync.get(['spam','replace'], function(items) {
+    if (items["spam"]){
+      document.getElementById('spam').textContent = 'Active';
+    } else {
+      document.getElementById('spam').textContent = 'Inactive';
+    }
+    if (items["replace"]){
+      document.getElementById('replace').textContent = 'Active';
+    } else {
+      document.getElementById('replace').textContent = 'Inactive';
+    }
   });
