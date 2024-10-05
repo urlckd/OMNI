@@ -1,5 +1,5 @@
 async function createOverlay() {
-    if(isEnabled){
+    if(spEnabled){
         const overlay = document.createElement('img');
         overlay.id = 'overlay';
         overlay.style.position = 'absolute';
@@ -17,29 +17,40 @@ async function createOverlay() {
    }
 
 chrome.runtime.onMessage.addListener((message) => {
-	switch (message) {
-	  case "on":
-		isEnabled = true;
-        chrome.storage.sync.set({'spam': true}, function() {
+	switch (message["type"]) {
+	  case "spam":
+      spEnabled = message["content"];
+        chrome.storage.sync.set({'spam': message["content"]}, function() {
           console.log('Settings saved');
         });
-		console.log("on");
+		console.log("spam with status " + message["content"] + " received");
 		break;
-	  default:
-        isEnabled = false;
-        chrome.storage.sync.set({'spam': false}, function() {
-          console.log('Settings saved');
-        });
-		console.log("off");
+    case "frequency":
+      frequency = message["content"]*1000;
+      chrome.storage.sync.set({'freq': frequency}, function() {
+        console.log('Settings saved freq ' + frequency);
+      });
+      clearInterval(interval);
+      interval = setInterval(createOverlay, frequency);
+		console.log("frequency with speed " + message["content"] + " received");
 		break;
+    default:
+      console.log("idk unknown msg");
 	}
-	console.log(isEnabled);
   });
 
-isEnabled = false;
+var spEnabled = false;
+var frequency = 4000;
 // Read it using the storage API
 chrome.storage.sync.get(['spam'], function(items) {
-  isEnabled = items["spam"];
+  spEnabled = items["spam"];
 });
-console.log("create div");
-setInterval(createOverlay, 1000);
+
+chrome.storage.sync.get(['freq'], function(items) {
+  frequency = items["freq"];
+  clearInterval(interval);
+  interval = setInterval(createOverlay, frequency);
+});
+
+console.log("create div freq " + frequency);
+var interval = setInterval(createOverlay, frequency);

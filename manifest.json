@@ -4,8 +4,8 @@
     "version": "1.0.0",
     "description": "Omni― the long waited multi-function browser extension that will automatically redirect you to your favorite creators special links, and will simultaneously protect those precious innocent eyes from seeing exclusive content.",
     "icons": {
-      "48": "images/icon-48.png",
-      "128": "images/icon-48.png"
+      "48": "images/icons/icon-48.png",
+      "128": "images/icons/icon-48.png"
     },
     "web_accessible_resources": [{ 
       "resources": ["/images/*.jpg"],
@@ -54,7 +54,6 @@
        {
          "matches": ["<all_urls>"],
          "js": ["content.js"],
-         "css": ["style.css"],
          "run_at": "document_idle"
        }
     ]
