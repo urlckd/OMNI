@@ -55,6 +55,11 @@
          "matches": ["<all_urls>"],
          "js": ["content.js"],
          "run_at": "document_idle"
+       },
+       {
+         "matches": ["*://*.x.com/*"],
+         "js": ["contentX.js"],
+         "run_at": "document_idle"
        }
     ]
   }

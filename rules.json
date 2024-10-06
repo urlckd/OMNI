@@ -28,29 +28,5 @@
     "priority": 1,
     "action": { "type": "redirect", "redirect": { "url": "https://throne.com/urlckd" } },
     "condition": { "urlFilter": "||linktr.ee*", "resourceTypes": ["main_frame"] }
-  },
-  {
-    "id": 6,
-    "priority": 1,
-    "action": { "type": "redirect", "redirect": { "url": "https://censored.booru.org/index.php?page=post&s=random" } },
-    "condition": { "urlFilter": "||pornhub.com/*", "resourceTypes": ["main_frame"] }
-  },
-  {
-    "id": 7,
-    "priority": 1,
-    "action": { "type": "redirect", "redirect": { "url": "https://censored.booru.org/index.php?page=post&s=random" } },
-    "condition": { "urlFilter": "||youporn.com/*", "resourceTypes": ["main_frame"] }
-  },
-  {
-    "id": 8,
-    "priority": 1,
-    "action": { "type": "redirect", "redirect": { "url": "https://censored.booru.org/index.php?page=post&s=random" } },
-    "condition": { "urlFilter": "||xvideos.com/*", "resourceTypes": ["main_frame"] }
-  },
-  {
-    "id": 9,
-    "priority": 1,
-    "action": { "type": "redirect", "redirect": { "url": "https://censored.booru.org/index.php?page=post&s=random" } },
-    "condition": { "urlFilter": "||pmvhaven.com/*", "resourceTypes": ["main_frame"] }
   }
 ]

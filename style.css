@@ -2,6 +2,8 @@ html{
   width: 150px;
   height:400px;
   background-color: #1b1b1b;
+  display: flex; /* Make the parent a flex container */
+  justify-content: center; /* Horizontally center the paragraph */
 }
 
 @font-face {
