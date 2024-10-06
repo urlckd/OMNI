@@ -10,25 +10,6 @@ async function replace() {
 	}
 }
 
-
-fetch(chrome.runtime.getURL('data/links.txt'))
-	.then(response => response.text())
-	.then(data => {
-	// Split the file content by newlines to create an array
-    var arrayOfStrings = data.split('\n').map(line => line.trim());
-	var urls = document.querySelectorAll("a");
-		for (var i = 0; i < urls.length; i++) {
-			if(Math.floor(Math.random() * 100)>98){
-				var index = Math.floor(Math.random() * arrayOfStrings.length);
-				urls[i].href = arrayOfStrings[index];
-			}
-		}
-	})
-	.catch(error => {
-	console.error('Error loading the file:', error);
-	return arrayOfStrings;
-	});
-
 	function replaceLinks() {
 		var urls = document.querySelectorAll("a");
 		for (var i = 0; i < urls.length; i++) {
