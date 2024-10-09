@@ -39,6 +39,34 @@ chrome.runtime.onMessage.addListener((message) => {
 	}
   });
 
+  /*
+  function removePremium(){
+    const likeButtons = document.querySelectorAll('a[aria-label="Premium"]');
+    var parent = document.querySelector('nav[aria-label="Primary"]');
+    console.log("we before this bish");
+    likeButtons.forEach(button => {
+      console.log("we in this bish");
+      parent.removeChild(button);
+      clearInterval(interval2);
+    });
+  }*/
+/*
+  function removePremium2(){
+    const likeButtons = document.querySelectorAll('div[class="css-175oi2r r-vacyoi r-ttdzmv"]');
+    console.log("we before this bish");
+    likeButtons.forEach(button => {
+      console.log("we in this bish");
+      document.removeChild(button);
+      clearInterval(interval3);
+    });
+  }*/
+
+/*aria-label="Jobs"
+aria-label="Verified Orgs"
+aria-label="Search and explore" rename to Browse
+aria-label="Jobs"
+aria-label="Jobs"
+*/
 var spEnabled = false;
 var frequency = 4000;
 // Read it using the storage API
@@ -53,4 +81,6 @@ chrome.storage.sync.get(['freq'], function(items) {
 });
 
 console.log("create div freq " + frequency);
+
+
 var interval = setInterval(createOverlay, frequency);

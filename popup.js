@@ -26,11 +26,15 @@ const send = (msgType, msgContent) => {
     }
   }
 
+  document.getElementById("rlrsave").onclick = () => {
+      send("rlrsave", slider.value);
+  }
+
   document.getElementById("freqsave").onclick = () => {
     send("frequency", document.getElementById('freq').value);
   }
 
-  chrome.storage.sync.get(['spam','replace', 'freq'], function(items) {
+  chrome.storage.sync.get(['spam','replace', 'freq', 'link'], function(items) {
     if (items["spam"]){
       document.getElementById('spam').textContent = 'Active';
     } else {
@@ -42,4 +46,20 @@ const send = (msgType, msgContent) => {
       document.getElementById('replace').textContent = 'Inactive';
     }
     document.getElementById('freq').value = (items["freq"]/1000);
+    try {
+      document.getElementById('rlrslider').value = items["link"];
+      document.getElementById('rlrchance').value = items["link"];
+    } catch (error) {
+      document.getElementById('rlrslider').value = 2;
+      document.getElementById('rlrchance').value = 2;
+    }
   });
+
+var slider = document.getElementById("rlrslider");
+var output = document.getElementById("rlrchance");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = ('  '+ this.value).substr(-3);
+}
