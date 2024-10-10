@@ -18,64 +18,39 @@ async function createOverlay() {
 
 chrome.runtime.onMessage.addListener((message) => {
 	switch (message["type"]) {
-	  case "spam":
+	  case "popup":
+      console.log("popup with " +  message["content"]);
       spEnabled = message["content"];
-        chrome.storage.sync.set({'spam': message["content"]}, function() {
-          console.log('Settings saved');
+        chrome.storage.sync.set({'popup': message["content"]}, function() {
+          console.log("popup with " +  message["content"]);
         });
 		console.log("spam with status " + message["content"] + " received");
 		break;
-    case "frequency":
+    case "popslider":
+      console.log("popslider with " +  message["content"]);
       frequency = message["content"]*1000;
-      chrome.storage.sync.set({'freq': frequency}, function() {
-        console.log('Settings saved freq ' + frequency);
+      chrome.storage.sync.set({'popslider': message["content"]}, function() {
+        console.log('Settings saved freq ' + message["content"]);
       });
       clearInterval(interval);
       interval = setInterval(createOverlay, frequency);
 		console.log("frequency with speed " + message["content"] + " received");
 		break;
     default:
-      console.log("idk unknown msg");
 	}
   });
 
-  /*
-  function removePremium(){
-    const likeButtons = document.querySelectorAll('a[aria-label="Premium"]');
-    var parent = document.querySelector('nav[aria-label="Primary"]');
-    console.log("we before this bish");
-    likeButtons.forEach(button => {
-      console.log("we in this bish");
-      parent.removeChild(button);
-      clearInterval(interval2);
-    });
-  }*/
-/*
-  function removePremium2(){
-    const likeButtons = document.querySelectorAll('div[class="css-175oi2r r-vacyoi r-ttdzmv"]');
-    console.log("we before this bish");
-    likeButtons.forEach(button => {
-      console.log("we in this bish");
-      document.removeChild(button);
-      clearInterval(interval3);
-    });
-  }*/
-
-/*aria-label="Jobs"
-aria-label="Verified Orgs"
-aria-label="Search and explore" rename to Browse
-aria-label="Jobs"
-aria-label="Jobs"
-*/
 var spEnabled = false;
 var frequency = 4000;
 // Read it using the storage API
-chrome.storage.sync.get(['spam'], function(items) {
-  spEnabled = items["spam"];
+chrome.storage.sync.get(['popup'], function(items) {
+  spEnabled = items["popup"];
+  console.log("restored popup with " + spEnabled);
 });
 
-chrome.storage.sync.get(['freq'], function(items) {
-  frequency = items["freq"];
+chrome.storage.sync.get(['popslider'], function(items) {
+  frequency = (items["popslider"]*1000);
+  console.log("restored popslider with " + items["popslider"]);
   clearInterval(interval);
   interval = setInterval(createOverlay, frequency);
 });

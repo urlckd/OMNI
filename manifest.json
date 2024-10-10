@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Omni",
-    "version": "1.0.0",
+    "version": "1.3.0",
     "description": "Omni― the long waited multi-function browser extension that will automatically redirect you to your favorite creators special links, and will simultaneously protect those precious innocent eyes from seeing exclusive content.",
     "icons": {
       "48": "images/icons/icon-48.png",
@@ -30,6 +30,7 @@
     "host_permissions": [
       "*://*.throne.com/*",
       "*://allmylinks.com/*",
+      "*://youtube.com/*",
       "*://*.carrd.co/*",
       "*://beacons.ai/*",
       "*://linktr.ee/*",
