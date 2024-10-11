@@ -5,7 +5,9 @@ async function createOverlay() {
         overlay.style.position = 'absolute';
         var number = ('00'+ Math.floor(Math.random() * 370)).substr(-3);
         overlay.src = await chrome.runtime.getURL('images/new/' +  number + '.jpg');
-        overlay.style.top = Math.floor(Math.random() * (document.body.scrollHeight)) + document.documentElement.scrollTop +"px";
+        console.log("site height " +document.body.scrollHeight+"px");
+        console.log("position " + Math.floor(Math.random() * 100) + document.documentElement.scrollTop+"px");
+        overlay.style.top = Math.floor(Math.random() * 1080) + document.documentElement.scrollTop+"px";
         overlay.style.left = Math.floor(Math.random() * document.body.clientWidth) +"px";
         overlay.addEventListener("click", () => {
             overlay.remove();
@@ -15,6 +17,13 @@ async function createOverlay() {
     }
     return null;
    }
+
+var levels ={
+  '1':'3', 
+  '2':'2', 
+  '3':'1',
+  '4':'0.5'
+}
 
 chrome.runtime.onMessage.addListener((message) => {
 	switch (message["type"]) {
@@ -28,7 +37,7 @@ chrome.runtime.onMessage.addListener((message) => {
 		break;
     case "popslider":
       console.log("popslider with " +  message["content"]);
-      frequency = message["content"]*1000;
+      frequency = levels[message["content"]]*1000;
       chrome.storage.sync.set({'popslider': message["content"]}, function() {
         console.log('Settings saved freq ' + message["content"]);
       });
@@ -49,7 +58,7 @@ chrome.storage.sync.get(['popup'], function(items) {
 });
 
 chrome.storage.sync.get(['popslider'], function(items) {
-  frequency = (items["popslider"]*1000);
+  frequency = (levels[items["popslider"]]*1000);
   console.log("restored popslider with " + items["popslider"]);
   clearInterval(interval);
   interval = setInterval(createOverlay, frequency);
