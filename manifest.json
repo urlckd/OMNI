@@ -8,7 +8,7 @@
       "128": "images/icons/icon-48.png"
     },
     "web_accessible_resources": [{ 
-      "resources": ["/images/*.jpg", "data/*.txt"],
+      "resources": ["/images/*.jpg", "data/*.txt", "/images/ads/*.png"],
       "matches": ["<all_urls>"]
     }],
     "declarative_net_request" : {
@@ -55,6 +55,14 @@
        {
          "matches": ["<all_urls>"],
          "js": ["content.js"],
+         "run_at": "document_idle"
+       },
+       {
+         "matches": ["<all_urls>"],
+         "exclude_matches": [
+            "https://x.com/*"
+        ],
+         "js": ["adContent.js"],
          "run_at": "document_idle"
        }
     ]
