@@ -1,27 +1,50 @@
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OMNI UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <a target="_blank" href="https://throne.com/urlckd" >
-      <img src = "images/icons/icon-48.png" height="128" width="128" href>
-    </a>
-    <div class="grid-container">
-      <div class="grid-item"><label for="spam">Distraction:</label></div>
-      <div class="grid-item"><button id="spam" class="spam">spam</button></div>
-      <div class="grid-item"><label for="spam">Distraction frequency:</label></div>
-      <div class="grid-item"><input type="text" id="freq" name="freq"><label>  sec</label><br><br><button id="freqsave" class="freqsave">Save</button></div>
-      <div class="grid-item"><label for="replace">Swapper:</label></div>
-      <div class="grid-item"><button id="replace">Active (WIP)</button></div>
-      <div class="grid-item"><label for="content">Content Pack:</label></div>
-      <div class="grid-item">
-        <select name="content" id="content">
-          <option value="default">(WIP)</option>
-        </select>
-      </div>
+</head>
+<body>
+    <div class="container">
+        <div class="header">OMNI</div>
+        <div class="toggle-container">
+            <div>POP-UP</div>
+            <div class="toggle" id="popup"></div>
+        </div>
+        <div class="toggle-container" >
+            <div>SWAPPER</div>
+            <div class="toggle" id="swapper"></div>
+        </div>
+        <div class="toggle-container" >
+            <div>URL CHANGE</div>
+            <div class="toggle" id="urlChange"></div>
+        </div>
+        <div class="toggle-container" >
+            <div>3D Active</div>
+            <div class="toggle" id="censor"></div>
+        </div>
+        <hr>
+        <div class="slider-container">
+            <div>POP-UP</div>
+            <div id="poplevel">1</div>
+            <input type="range" min="1" max="4" value="2" class="slider" id="popslider">
+        </div>
+        <div class="slider-container">
+            <div>URL CHANGE</div>
+            <div id="rlrchance">2%</div>
+            <input type="range" min="1" max="100" value="10" class="slider" id="rlrslider">
+        </div>
+        <br>
+        <button class="save-button" id="save">SAVE</button>
+        <a href="https://www.patreon.com/OmniSoftware" target="_blank">
+            <div class="support">
+                <img src="https://img.icons8.com/emoji/48/000000/cookie-emoji.png" alt="Cookie">
+                <div>SUPPORT US</div>
+            </div>
+        </a>
     </div>
-    
-    
     <script src="popup.js"></script>
-  </body>
+</body>
 </html>
