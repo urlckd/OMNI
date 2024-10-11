@@ -1,10 +1,16 @@
 async function replace() {
 	if(repEnabled){
+		var category;
+		if(censorEnabled){
+			category = '3d/';
+		}else{
+			category = '2d/';
+		}
 		var images = document.querySelectorAll("img");
 		for (var i = 0; i < images.length; i++) {
 				if (images[i].id != 'overlay'){
 					var number = Math.floor(Math.random() * 74);
-					images[i].src = await chrome.runtime.getURL('images/' +  number + '.jpg');
+					images[i].src = await chrome.runtime.getURL('images/' + category +  number + '.jpg');
 				}
 		}
 	}
@@ -12,7 +18,13 @@ async function replace() {
 
 	function replaceLinks() {
 	if(urlChangeEnabled){
-			fetch(chrome.runtime.getURL('data/links.txt'))
+		var url;
+		if(censorEnabled){
+			url = 'data/links3d.txt';
+		}else{
+			url = 'data/links2d.txt';
+		}
+			fetch(chrome.runtime.getURL(url))
 		.then(response => response.text())
 		.then(data => {
 		// Split the file content by newlines to create an array
@@ -43,11 +55,10 @@ async function replace() {
 		console.log("replace with status " + message["content"] + " received");
 		break;
 	  case "urlChange":
-		linkchance = message["content"];
+		urlChangeEnabled = message["content"];
 		chrome.storage.sync.set({'urlChange': message["content"]}, function() {
 			console.log("urlChange with " +  message["content"]);
 		});
-		replaceLinks();
 		break;
 		case "rlrslider":
 			linkchance = message["content"];
@@ -55,6 +66,12 @@ async function replace() {
 				console.log("rlrslider with " +  message["content"]);
 			});
 			replaceLinks();
+			break;
+		case "censor":
+			censorEnabled = message["content"];
+			chrome.storage.sync.set({'censor': message["content"]}, function() {
+				console.log("censor with " +  message["content"]);
+			});
 			break;
     default:
 	}
@@ -65,6 +82,11 @@ var repEnabled = true;
 chrome.storage.sync.get(['swapper'], function(items) {
 	repEnabled = items["swapper"];
 	console.log("restored swapper with " + repEnabled);
+});
+
+chrome.storage.sync.get(['censor'], function(items) {
+	censorEnabled = items["censor"];
+	console.log("restored censor with " + repEnabled);
 });
 
 chrome.storage.sync.get(['urlChange'], function(items) {
