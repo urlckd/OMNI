@@ -76,13 +76,16 @@ body {
   color: #777;
 }
 .save-button {
+  border: 2px solid white;
   background-color: #000;
   color: #fff;
-  border: none;
   padding: 10px;
   font-size: 1em;
-  width: 100%;
+  width: 50%;
   cursor: pointer;
+}
+.button-container {
+  display: flex;
 }
 .support {
   display: flex;
