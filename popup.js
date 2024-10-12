@@ -24,6 +24,7 @@ document.getElementById("swapper").addEventListener('click', () => {toggleActive
 document.getElementById("urlChange").addEventListener('click', () => {toggleActive('urlChange');});
 document.getElementById("censor").addEventListener('click', () => {toggleActive('censor');});
 document.getElementById("save").addEventListener('click', () => {save();});
+document.getElementById("clean").addEventListener('click', () => {clean();});
 
 try{
 chrome.storage.sync.get(['popup','censor', 'swapper', 'urlChange', 'popslider', 'rlrslider'], function(items) {
@@ -80,6 +81,12 @@ function save(){
   send("censor", getToggleStatus(toggleCensor));
   send("popslider", popslider.value);
   send("rlrslider", rlrslider.value);
+  }catch{};
+}
+
+function clean(){
+  try{
+  send("clean", "crabo");
   }catch{};
 }
 

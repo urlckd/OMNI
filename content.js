@@ -45,6 +45,12 @@ chrome.runtime.onMessage.addListener((message) => {
       interval = setInterval(createOverlay, frequency);
 		console.log("frequency with speed " + message["content"] + " received");
 		break;
+    case "clean":
+      var imgs = document.querySelectorAll('img[id="overlay"]');
+			for (var i = 0; i < imgs.length; i++) {
+        imgs[i].remove();
+			}
+		break;
     default:
 	}
   });
