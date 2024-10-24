@@ -3,8 +3,19 @@ async function createOverlay() {
         const overlay = document.createElement('img');
         overlay.id = 'overlay';
         overlay.style.position = 'absolute';
-        var number = ('00'+ Math.floor(Math.random() * 370)).substr(-3);
-        overlay.src = await chrome.runtime.getURL('images/new/' +  number + '.jpg');
+        if(censorEnabled){
+          const response = await fetch(chrome.runtime.getURL('images/custom/customPack.txt'));
+          const data = await response.text();
+          // Split the file content by newlines to create an array
+          var imageNames = data.split('\n');
+        }else{
+          file = '2d/' + (Math.floor(Math.random() * 74) + '.jpg');
+        }
+        if(censorEnabled){
+          overlay.src = await chrome.runtime.getURL('images/' + 'custom/' + imageNames[Math.floor(Math.random() * imageNames.length)]);
+        }else{
+          overlay.src = await chrome.runtime.getURL('images/' + '2d/' + (Math.floor(Math.random() * 74) + '.jpg'));
+        }
         console.log("site height " +document.body.scrollHeight+"px");
         console.log("position " + Math.floor(Math.random() * 100) + document.documentElement.scrollTop+"px");
         overlay.style.top = Math.floor(Math.random() * 1080) + document.documentElement.scrollTop+"px";
@@ -61,6 +72,11 @@ var frequency = 4000;
 chrome.storage.sync.get(['popup'], function(items) {
   spEnabled = items["popup"];
   console.log("restored popup with " + spEnabled);
+});
+
+chrome.storage.sync.get(['censor'], function(items) {
+	censorEnabled = items["censor"];
+	console.log("restored censor with " + repEnabled);
 });
 
 chrome.storage.sync.get(['popslider'], function(items) {

@@ -1,20 +1,41 @@
 async function replace() {
 	if(repEnabled){
-		var category;
+		var file;
 		if(censorEnabled){
-			category = '3d/';
+			const response = await fetch(chrome.runtime.getURL('images/custom/customPack.txt'));
+    		const data = await response.text();
+			// Split the file content by newlines to create an array
+			var imageNames = data.split('\n');
 		}else{
-			category = '2d/';
+			file = '2d/' + (Math.floor(Math.random() * 74) + '.jpg');
 		}
 		var images = document.querySelectorAll("img");
 		for (var i = 0; i < images.length; i++) {
 				if (images[i].id != 'overlay'){
-					var number = Math.floor(Math.random() * 74);
-					images[i].src = await chrome.runtime.getURL('images/' + category +  number + '.jpg');
+					console.log("about to replace with " + file);
+					if(censorEnabled){
+						images[i].src = await chrome.runtime.getURL('images/' + 'custom/' + imageNames[Math.floor(Math.random() * (imageNames.length-1))]);
+					}else{
+						images[i].src = await chrome.runtime.getURL('images/' + '2d/' + (Math.floor(Math.random() * 74) + '.jpg'));
+					}
 				}
 		}
 	}
 }
+
+/*
+function loadPack(){
+	fetch(chrome.runtime.getURL('images/custom/customPack.txt'))
+		.then(response => response.text())
+		.then(data => {
+			// Split the text content by line breaks into an array
+			imageNames = data.split(/\r?\n/);
+			console.log('Array of lines:', lines);
+		})
+		.catch(error => {
+			console.error('Error reading the file:', error);
+		});
+}*/
 
 	function replaceLinks() {
 	if(urlChangeEnabled){
@@ -76,6 +97,8 @@ async function replace() {
     default:
 	}
   });
+
+
 
 var repEnabled = true;
 // Read it using the storage API
