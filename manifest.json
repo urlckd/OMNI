@@ -8,7 +8,7 @@
       "128": "images/icons/icon-48.png"
     },
     "web_accessible_resources": [{ 
-      "resources": ["/images/*.jpg", "data/*.txt", "/images/ads/*.png"],
+      "resources": ["/images/*.jpg", "data/*.txt", "/images/ads/*.png", "/images/custom/*", "/images/custom/*.jpg"],
       "matches": ["<all_urls>"]
     }],
     "declarative_net_request" : {
