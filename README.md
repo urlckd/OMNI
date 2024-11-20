@@ -15,8 +15,7 @@ Keep in mind: the following browser extension is intended for ages 18 years or o
 ## Features
 
 - Replaces all SFW & NSFW pictures with various sorts of pornographic images. 
-- Redirects all pornographic video sites to beta safe censored sites.
-- Surprise Links (Haha).
+- Custom Folder for your own SFW / NSFW media.
 
 
 ## Roadmap
