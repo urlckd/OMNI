@@ -8,7 +8,7 @@ Keep in mind: the following browser extension is intended for ages 18 years or o
 
 ## Authors
 
-- [Jess](https://x.com/urlckd) - **Graphic Artist**
+- [Jess](https://x.com/lckdwns) - **Graphic Artist**
 - [Jan](https://x.com/urlckdev) - **Developer**
 
 
